@@ -1,0 +1,30 @@
+
+basep:
+    bs : 400
+    nc : 128
+    seed : 100
+    nsteps : 5
+    zz : 0.0
+    nfsteps : 40
+    numd : 0.0005             #check fine and hofolder with this
+    fine : 4
+
+    foldername : ''
+    abund : False
+    rsd : False
+    masswt : False
+    kbias : 6
+    Rsm : 7
+
+
+foldersp:
+    hofolder : 'highres%d_S%04d/'
+    infolder : null
+
+
+scatterp:
+    sigma : null
+    rseed : 666
+
+
+

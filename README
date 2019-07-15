@@ -1,0 +1,7 @@
+Noise:
+the noise files have std wrt to eq: (x-mu)**2/2\sigma**2
+the optimization code has eq: (x-\mu)**2/\sigma**2
+
+so the std values from noise files is multiplied by \sqrt(2)
+
+furthermode, the value of noisevar and ninf are variances of noise
