@@ -1,0 +1,19 @@
+mods:
+    objective : SmoothedFourierObjective
+    map : mapbias
+
+basep:
+    bs : 400
+    nc : 128
+    ncf : 512
+    seed : 100
+    nsteps : 5
+    B : 1
+    zz : 0 
+    #aa : 1.000
+    pmdisp : False
+    masswt : True
+    nfsteps : 40
+    numd : 0.001
+    noisevar : 0.01
+    rsdpos : False
