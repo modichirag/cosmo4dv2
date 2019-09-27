@@ -1,0 +1,33 @@
+#! /bin/bash
+
+#SBATCH -t 0:30:00
+#SBATCH --qos debug
+#SBATCH -C knl
+#SBATCH -A m3058
+#SBATCH -N 1
+#SBATCH -J mockdata
+#SBATCH -o ./logs/%x.o%j
+
+#DW jobdw capacity=1000GB access_mode=striped type=scratch
+#DW stage_out source=$DW_JOB_STRIPED/ destination=/global/cscratch1/sd/chmodi/cosmo4d/data/traindata/ type=directory
+
+
+#export ATP_ENABLED=1
+export OMP_NUM_THREADS=1
+
+
+afin=1.0000
+bs=200
+nc=64
+B=1
+Tsteps=5
+
+echo $DW_JOB_STRIPED
+echo ${SLURM_NNODES}
+
+##
+for seed in {6700..10000..100}; do
+    output="$DW_JOB_STRIPED/L$bs-N$nc-B$B-T$Tsteps/S$seed/"
+    echo $output
+    time srun -N ${SLURM_NNODES}   /global/project/projectdirs/m3127/codes/fd0f424/fastpm/src/fastpm traindata.lua  $bs $nc $seed  $afin $output  $B  $Tsteps
+done
